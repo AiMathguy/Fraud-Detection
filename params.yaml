@@ -1,0 +1,43 @@
+data_ingestion:
+  raw_data_path: "data/raw/data.csv"
+  train_data_path: "data/processed/train.csv"
+  test_data_path: "data/processed/test.csv"
+  test_size: 0.2
+  random_state: 42
+
+model_evaluation:
+
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+
+model_building:
+  model_type: "XGBoostClassifier"
+  hyperparameters:
+    n_estimators: 100
+    max_depth: 6
+    random_state: 42
+    learning_rate: 0.1
+    eval_metric: "logloss"
+
+model_building_alternative:
+  model_type: "DecisionTreeClassifier"
+  hyperparameters:
+    n_estimators: 100
+    max_depth: 6
+    random_state: 42
+    learning_rate: 0.1
+    eval_metric: "logloss"
+
+model_building_gru:
+  model_type: "GRU"
+  hyperparameters:
+    input_size: 27
+    hidden_size: 128
+    num_layers: 3
+    output_size: 1
+    dropout: 0.5
+    batch_size: 32
+    num_epochs: 50
